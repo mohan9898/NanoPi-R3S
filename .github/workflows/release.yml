@@ -1,0 +1,12 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # 关键步骤：添加权限声明
+    permissions:
+      contents: write  # 允许创建 Release
+    steps:
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          generate_release_notes: true
